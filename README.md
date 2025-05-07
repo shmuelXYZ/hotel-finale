@@ -1,27 +1,88 @@
-# React + TypeScript + Vite
+# list
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## sub list
 
-Currently, two official plugins are available:
+### _litle_ **one**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## order list
 
-## Expanding the ESLint configuration
+1. hello
+2. mark
+3. down
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+[link to pnmp.yaml](pnpm-lock.yaml)
 
-- Configure the top-level `parserOptions` property like this:
+![images links](./src/assets/react.svg)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+> one move
+>
+> > to
+> >
+> > > be
+
+- hi
+  - my name is
+  - sdcsdc
+    - dcsdc
+    * dscdsc
+
+* wefwef
+
+---
+
+---
+
+I need to highlight these ~~very important words~~.
+
+## code
+
+```json
+{
+  "asdasds": "as",
+  "asdasd": "qwdwqd"
+}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```python
+def greet():
+   print("code in markdown")
+```
+
+## todo
+
+- [x] asas
+- [x] find
+- [ ] connect to DB
+
+One
+: weewefwef
+Too
+: sdfsdf
+
+## tabels
+
+| col 1 | col 2 |
+| :---- | ----: |
+| 1     |     2 |
+| 1     |     2 |
+
+| 1   | 2    |
+| --- | ---- |
+| 1   | hiii |
+
+### foot nots
+
+Here's a simple footnote,[^1] and here's a longer one.[^2]
+
+[^1]: This is the first footnote.
+[^2]: Here's one with multiple paragraphs and code.
+
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
+
+## math
+
+$3+1=4$

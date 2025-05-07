@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Settings from "./pages/Settings";
 import Users from "./pages/Users";
 import GlobalStyles from "./styles/GlobalStyles";
+import AppLayout from "./ui/AppLayout";
 
 export default function App() {
   return (
@@ -15,14 +16,16 @@ export default function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route index element={<Navigate replace to="dashboard" />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="account" element={<Account />} />
-          <Route path="booking" element={<Booking />} />
-          <Route path="cabins" element={<Cabins />} />
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="account" element={<Account />} />
+            <Route path="booking" element={<Booking />} />
+            <Route path="cabins" element={<Cabins />} />
+            <Route path="users" element={<Users />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
           <Route path="login" element={<Login />} />
-          <Route path="users" element={<Users />} />
-          <Route path="settigs" element={<Settings />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
