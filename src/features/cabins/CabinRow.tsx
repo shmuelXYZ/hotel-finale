@@ -1,3 +1,4 @@
+import { Tables } from "../../types/supabase";
 import { formatCurrency } from "../../utils/helpers";
 import styled from "styled-components";
 
@@ -40,10 +41,10 @@ const Discount = styled.div`
   color: var(--color-green-700);
 `;
 
-export default function CabinRow({ cabin }: { cabin: any }) {
+export default function CabinRow({ cabin }: { cabin: Tables<"cabins"> }) {
   return (
     <TableRow role="row">
-      <Img src={cabin.image} alt={cabin.name} />
+      <Img src={cabin.image ?? ""} alt={cabin.name ?? ""}></Img>
       <Cabin>{cabin.name}</Cabin>
       <div>{cabin.totalCapasity}</div>
       <Price>{formatCurrency(cabin.regularPrice)}</Price>
