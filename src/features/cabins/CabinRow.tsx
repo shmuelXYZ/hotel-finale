@@ -1,6 +1,8 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Tables } from "../../types/supabase";
 import { formatCurrency } from "../../utils/helpers";
 import styled from "styled-components";
+import { deleteCabin } from "../../services/apiCabins";
 
 const TableRow = styled.div`
   display: grid;
@@ -42,13 +44,34 @@ const Discount = styled.div`
 `;
 
 export default function CabinRow({ cabin }: { cabin: Tables<"cabins"> }) {
+  const {
+    id: cabinId,
+    image,
+    name,
+    totalCapasity,
+    regularPrice,
+    discount,
+  } = cabin;
+
+  const queryClient = useQueryClient();
+
+  const { isLoading: isDeleting, mutate } = useMutation({
+    mutationFn: deleteCabin,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cabins"] });
+    },
+  });
+
   return (
     <TableRow role="row">
-      <Img src={cabin.image ?? ""} alt={cabin.name ?? ""}></Img>
-      <Cabin>{cabin.name}</Cabin>
-      <div>{cabin.totalCapasity}</div>
-      <Price>{formatCurrency(cabin.regularPrice)}</Price>
-      <Discount>{formatCurrency(cabin.discount)}%</Discount>
+      <Img src={image ?? ""} alt={name ?? ""}></Img>
+      <Cabin>{name}</Cabin>
+      <div>{totalCapasity}</div>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
+      <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
+        Delete
+      </button>
     </TableRow>
   );
 }
