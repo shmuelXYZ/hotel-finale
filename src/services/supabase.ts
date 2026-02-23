@@ -1,6 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = "https://ndzblfxeyqmyhaoateis.supabase.co";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "";
+
+if (!import.meta.env.VITE_SUPABASE_URL)
+  throw new Error("SUPABASE_URL is required");
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY || "";
 
 if (!import.meta.env.VITE_SUPABASE_KEY)
